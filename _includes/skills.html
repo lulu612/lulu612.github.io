@@ -1,24 +1,37 @@
-{% if site.data.data.skills %}
-<section class="skills-section section">
+<div class="container">
 
-  <h2 class="section-title"><i class="fa fa-rocket"></i>{{site.data.data.skills.title}}</h2>
+    <h3 class="text-sm-center section-heading"> Professional Skills </h3>
+    <h4 class="text-sm-center skills-title"> Top Skills </h4>
 
-  <div class="skillset">
+    <div class="row top-skills">
+        {% for skill in include.skills.topskills %}
 
-    {% for skill in site.data.data.skills.skills %}
-    <div class="item">
+            <div class="col-md-4">
+                <h4 class="skill-name text-center theme-color" >{{ skill.name }}</h4>
+                <p class="skill-level text-center " >{{ skill.level }}</p>
+                <div class="skill-desc text-center lead"> {{ skill.desc }}</div>
 
-      <h3 class="level-title">{{ skill.name }}</h3>
+            </div>
 
-      <div class="level-bar">
-        <div class="level-bar-inner" data-level="{{ skill.level }}">
+         {% endfor %}
+    </div>
+
+    <div class="other-skills col-md-12">
+
+        <h4 class="text-sm-center skills-title "> Other Skills </h4>
+        <div class="misc-skills">
+
+
+        {% for skill in include.skills.otherskills %}
+        <span type="" class="skill-tag text-center"> {{ skill }} </span>
+        {% endfor %}
+
+
+
+
+
+
         </div>
-      </div><!--//level-bar-->
 
-    </div><!--//item-->
-    {% endfor %}
-
-  </div>
-
-</section><!--//skills-section-->
-{% endif %}
+    </div>
+</div>
